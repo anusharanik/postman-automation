@@ -1,0 +1,15 @@
+{
+  "name": "postman-automation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "newman run \"JSONPlaceholder API Tests.postman_collection.json\" -e \"JSONPlaceholder Environment.postman_environment.json\" --reporters cli,html --reporter-html-export report.html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "newman": "^6.2.0"
+  }
+}
