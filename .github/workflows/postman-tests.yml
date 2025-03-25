@@ -7,6 +7,7 @@ on:
   schedule:
     - cron: '0 3 * * *'  # Runs at 3 AM UTC daily (adjust as needed)
   workflow_dispatch:
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -25,9 +26,13 @@ jobs:
 
       - name: Run Postman Tests with HTML Report
         run: |
-          newman run "postman-automation/JSONPlaceholder API Tests.postman_collection.json" -e "postman-automation/JSONPlaceholder Environment.postman_environment.json" \ --reporters cli,html --reporter-html-export report.html
+          newman run "JSONPlaceholder API Tests.postman_collection.json" \
+          -e "JSONPlaceholder Environment.postman_environment.json" \
+          --reporters cli,html \
+          --reporter-html-export report.html
+
       - name: Upload HTML Report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: postman-test-report
           path: report.html
