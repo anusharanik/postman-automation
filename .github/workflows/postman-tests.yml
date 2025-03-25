@@ -6,7 +6,7 @@ on:
   pull_request:
   schedule:
     - cron: '0 3 * * *'  # Runs at 3 AM UTC daily (adjust as needed)
-
+  workflow_dispatch:
 jobs:
   test:
     runs-on: ubuntu-latest
